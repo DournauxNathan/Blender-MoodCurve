@@ -1,4 +1,5 @@
 import bpy
+from .pose_sync import apply_pose_from_library
 
 class MoodKeyframe(bpy.types.PropertyGroup):
     frame: bpy.props.IntProperty()
@@ -27,6 +28,7 @@ class MOODCURVE_OT_SaveKey(bpy.types.Operator):
         scene.timeline_markers.new(name=marker_label, frame=new_key.frame)
 
         self.report({'INFO'}, f"Émotion '{marker_label}' enregistrée à la frame {new_key.frame}")
+        apply_pose_from_library(new_key.emotion)
         return {'FINISHED'}
 
 def register():

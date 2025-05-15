@@ -8,11 +8,11 @@ bl_info = {
     "category": "Animation",
 }
 
-import bpy
 from . import ui_panel
 from . import emotion_data
-
-modules = [ui_panel, emotion_data]
+from . import csv_export
+from . import emotion_graph
+modules = [ui_panel, emotion_data, csv_export, emotion_graph]
 
 def register():
     for mod in modules:
