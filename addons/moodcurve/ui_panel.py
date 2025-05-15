@@ -14,6 +14,7 @@ class MOODCURVE_PT_Panel(bpy.types.Panel):
         layout.prop(scene, "moodcurve_emotion")
         layout.prop(scene, "moodcurve_intensity")
         layout.operator("moodcurve.save_key", icon='KEY_HLT')
+        layout.operator("moodcurve.export_csv", icon='EXPORT')
 
 def register():
     bpy.types.Scene.moodcurve_emotion = bpy.props.EnumProperty(
