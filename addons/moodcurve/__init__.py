@@ -1,7 +1,7 @@
 bl_info = {
     "name": "MoodCurve",
-    "author": "Ton Nom",
-    "version": (0, 1),
+    "author": "DOOURNAUX Nathan",
+    "version": (0, 2),
     "blender": (3, 6, 0),
     "location": "View3D > Sidebar > MoodCurve",
     "description": "Éditeur de courbes émotionnelles pour l'animation de personnages",
