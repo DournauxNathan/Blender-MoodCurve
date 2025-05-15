@@ -16,12 +16,17 @@ class MOODCURVE_OT_SaveKey(bpy.types.Operator):
         scene = context.scene
         track = scene.moodcurve_track
 
+        # Ajout de la clé dans la collection
         new_key = track.keyframes.add()
         new_key.frame = scene.frame_current
         new_key.emotion = scene.moodcurve_emotion
         new_key.intensity = scene.moodcurve_intensity
 
-        self.report({'INFO'}, f"Émotion '{new_key.emotion}' ({new_key.intensity}) à la frame {new_key.frame}")
+        # Ajout d’un marker visuel sur la timeline
+        marker_label = f"{new_key.emotion.capitalize()} ({new_key.intensity})"
+        scene.timeline_markers.new(name=marker_label, frame=new_key.frame)
+
+        self.report({'INFO'}, f"Émotion '{marker_label}' enregistrée à la frame {new_key.frame}")
         return {'FINISHED'}
 
 def register():
